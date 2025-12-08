@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>検索結果</title>
+</head>
+<body>
+
+<h2>検索結果：「<%= keyword %>」</h2>
+
+<% blogs.forEach(blog => { %>
+  <div class="card">
+    <h3><%= blog.title %></h3>
+    <p>投稿日：<%= blog.date %></p>
+    <p><%= blog.content %></p>
+  </div>
+<% }) %>
+
+<a href="/">戻る</a>
+
+</body>
+</html>

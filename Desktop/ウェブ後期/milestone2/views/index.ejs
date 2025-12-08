@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog</title>
+  <style>
+    body { width: 80%; margin: auto; font-family: sans-serif; }
+    .form-box { background: #eee; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+    .card { border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>My Blog</h1>
+
+<!-- 🔍 検索フォーム -->
+<form action="/search" method="POST">
+  キーワード検索：
+  <input type="text" name="keyword">
+  <button type="submit">検索</button>
+</form>
+
+<div class="form-box">
+  <h2>新しいブログを追加</h2>
+
+  <form action="/create" method="POST">
+    <label>タイトル:</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>投稿日:</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <label>内容:</label><br>
+    <textarea name="content" required></textarea><br><br>
+
+    <button type="submit">追加</button>
+  </form>
+</div>
+
+<h2>投稿一覧</h2>
+
+<% blogs.forEach(blog => { %>
+  <div class="card">
+    <h3><%= blog.title %></h3>
+    <p>投稿日: <%= blog.date %></p>
+    <p><%= blog.content %></p>
+  </div>
+<% }) %>
+
+</body>
+</html>
